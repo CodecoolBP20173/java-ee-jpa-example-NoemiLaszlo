@@ -15,6 +15,9 @@ public class Address {
     private String city;
     private String addr;
 
+    @OneToOne(mappedBy = "address")
+    private Student student;
+
     public Address() {
     }
 
@@ -23,6 +26,14 @@ public class Address {
         this.zipcode = zipcode;
         this.city = city;
         this.addr = addr;
+    }
+
+    public Address(String country, String zipcode, String city, String addr, Student student) {
+        this.country = country;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.addr = addr;
+        this.student = student;
     }
 
     public long getId() {
@@ -63,6 +74,10 @@ public class Address {
 
     public void setAddr(String addr) {
         this.addr = addr;
+    }
+
+    public Student getStudent() {
+        return student;
     }
 
     @Override
